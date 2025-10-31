@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Collected</title>
+</head>
+<body>
+    <h1>📊 Données reçues</h1>
+    <div id="data"></div>
+
+    <script>
+        // Récupérer les paramètres URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let html = '<h2>Données de l\'admin :</h2>';
+        
+        urlParams.forEach((value, key) => {
+            html += `<p><strong>${key}:</strong> ${value}</p>`;
+        });
+        
+        document.getElementById('data').innerHTML = html;
+        
+        // Sauvegarder dans la console aussi
+        console.log('Admin data:', Object.fromEntries(urlParams));
+    </script>
+</body>
+</html>
